@@ -266,7 +266,7 @@
 			regulators {
 				buck1_reg: BUCK1 {
 					regulator-name = "BUCK1";
-					regulator-min-microvolt = <500000>;
+					regulator-min-microvolt = <400000>;
 					regulator-max-microvolt = <1300000>;
 					regulator-always-on;
 					regulator-boot-on;
@@ -276,8 +276,8 @@
 
 				buck2_reg: BUCK2 {
 					regulator-name = "BUCK2";
-					regulator-min-microvolt = <500000>;
-					regulator-max-microvolt = <1300000>;
+					regulator-min-microvolt = <100000>;
+					regulator-max-microvolt = <800000>;
 					regulator-always-on;
 					regulator-boot-on;
 					regulator-ramp-delay = <12000>;
@@ -472,7 +472,7 @@
 				ldo31_reg: LDO31 {
 					regulator-name = "vdd_ldo31";
 					regulator-min-microvolt = <1800000>;
-					regulator-max-microvolt = <3375000>;
+					regulator-max-microvolt = <2800000>;
 					regulator-boot-on;
 					regulator-always-on;
 					regulator-ramp-delay = <12000>;
@@ -482,7 +482,7 @@
 				ldo32_reg: LDO32 {
 					regulator-name = "vdd_ldo32";
 					regulator-min-microvolt = <1800000>;
-					regulator-max-microvolt = <3375000>;
+					regulator-max-microvolt = <3300000>;
 					regulator-always-on;
 					regulator-ramp-delay = <12000>;
 					regulator-initial-mode = <1>;
@@ -510,7 +510,7 @@
 				ldo35_reg: LDO35 {
 					regulator-name = "vdd_ldo35";
 					regulator-min-microvolt = <1800000>;
-					regulator-max-microvolt = <3375000>;
+					regulator-max-microvolt = <2950000>;
 					regulator-always-on;
 					regulator-ramp-delay = <12000>;
 					regulator-initial-mode = <1>;
@@ -607,7 +607,7 @@
 	s2mu003-fuelgauge@35 {
 		fuelgauge,fuel_alert_soc = <1>;
 		fuelgauge,capacity_max = <1000>;
-		fuelgauge,capacity_max_margin = <30>;
+		fuelgauge,capacity_max_margin = <150>;
 		fuelgauge,capacity_min = <0>;
 		fuelgauge,capacity_calculation_type = <28>;
 		fuelgauge,repeated_fuelalert;
@@ -814,7 +814,7 @@
 		non_hw_trigger_levels = <7>;
 
 		/* Throttling Level */
-		trigger_levels_0 = <76>;
+		trigger_levels_0 = <81>;
 		trigger_levels_1 = <81>;
 		trigger_levels_2 = <86>;
 		trigger_levels_3 = <91>;
@@ -841,19 +841,25 @@
 		trigger_type_6 = <THROTTLE_ACTIVE>;
 		trigger_type_7 = <HW_TRIP>;
 
-		freq_tab_count = <5>;
+		freq_tab_count = <7>;
 
 		freq_clip_max_0 = <1586000>;
-		freq_clip_max_1 = <1248000>;
-		freq_clip_max_2 = <1248000>;
-		freq_clip_max_3 = <546000>;
-		freq_clip_max_4 = <546000>;
+		freq_clip_max_1 = <1352000>;
+		freq_clip_max_2 = <1144000>;
+		freq_clip_max_3 = <902000>;
+		freq_clip_max_4 = <757000>;
+		freq_clip_max_5 = <546000>;
+		freq_clip_max_6 = <343000>;
 
-		cooling_level_0 = <76>;
+
+		cooling_level_0 = <81>;
 		cooling_level_1 = <81>;
 		cooling_level_2 = <86>;
 		cooling_level_3 = <91>;
 		cooling_level_4 = <96>;
+		cooling_level_5 = <101>;
+		cooling_level_6 = <106>;
+	
 	};
 
 	tmuctrl_1: tmuctrl_CPUCL1@10130000 {
@@ -864,7 +870,7 @@
 		non_hw_trigger_levels = <7>;
 
 		/* Throttling Level */
-		trigger_levels_0 = <76>;
+		trigger_levels_0 = <81>;
 		trigger_levels_1 = <81>;
 		trigger_levels_2 = <86>;
 		trigger_levels_3 = <91>;
@@ -891,20 +897,25 @@
 		trigger_type_6 = <THROTTLE_ACTIVE>;
 		trigger_type_7 = <HW_TRIP>;
 
-		freq_tab_count = <5>;
+		freq_tab_count = <7>;
 
 		freq_clip_max_0 = <1586000>;
-		freq_clip_max_1 = <1248000>;
-		freq_clip_max_2 = <1248000>;
-		freq_clip_max_3 = <546000>;
-		freq_clip_max_4 = <546000>;
+		freq_clip_max_1 = <1352000>;
+		freq_clip_max_2 = <1144000>;
+		freq_clip_max_3 = <902000>;
+		freq_clip_max_4 = <757000>;
+		freq_clip_max_5 = <546000>;
+		freq_clip_max_6 = <343000>;
 
-		cooling_level_0 = <76>;
+
+		cooling_level_0 = <81>;
 		cooling_level_1 = <81>;
 		cooling_level_2 = <86>;
 		cooling_level_3 = <91>;
 		cooling_level_4 = <96>;
-
+		cooling_level_5 = <101>;
+		cooling_level_6 = <106>;
+	
 		hotplug_enable = <1>;
 		hotplug_in_threshold = <91>;
 		hotplug_out_threshold = <96>;
@@ -918,14 +929,14 @@
 		non_hw_trigger_levels = <7>;
 
 		/* Throttling Level */
-		trigger_levels_0 = <76>;
-		trigger_levels_1 = <81>;
-		trigger_levels_2 = <86>;
-		trigger_levels_3 = <91>;
-		trigger_levels_4 = <96>;
-		trigger_levels_5 = <101>;
-		trigger_levels_6 = <111>;
-		trigger_levels_7 = <115>;
+		trigger_levels_0 = <96>;
+		trigger_levels_1 = <96>;
+		trigger_levels_2 = <96>;
+		trigger_levels_3 = <101>;
+		trigger_levels_4 = <106>;
+		trigger_levels_5 = <111>;
+		trigger_levels_6 = <115>;
+		trigger_levels_7 = <120>;
 
 		trigger_enable_0 = <ENABLE>;
 		trigger_enable_1 = <ENABLE>;
@@ -950,23 +961,22 @@
 		freq_clip_max_0 = <1246000>;
 		freq_clip_max_1 = <1146000>;
 		freq_clip_max_2 = <1001000>;
-		freq_clip_max_3 = <728000>;
-		freq_clip_max_4 = <343000>;
+		freq_clip_max_3 = <845000>;
+		freq_clip_max_4 = <676000>;
 		freq_clip_max_5 = <343000>;
-
-		cooling_level_0 = <76>;
-		cooling_level_1 = <81>;
-		cooling_level_2 = <86>;
-		cooling_level_3 = <91>;
-		cooling_level_4 = <96>;
-		cooling_level_5 = <101>;
+		cooling_level_0 = <96>;
+		cooling_level_1 = <96>;
+		cooling_level_2 = <101>;
+		cooling_level_3 = <106>;
+		cooling_level_4 = <111>;
+		cooling_level_5 = <120>;
 
 		/* gpu cooling related table */
 		gpu_idx_num = <6>;
 		/* flags, driver_data(index), frequency */
-		gpu_cooling_table = < 0 0 1001000
-				      0 1 845000
-				      0 2 728000
+		gpu_cooling_table = < 0 0 1246000
+				      0 1 1146000
+				      0 2 1001000
 				      0 3 676000
 				      0 4 343000
 				      0 5 TABLE_END>;
@@ -980,6 +990,10 @@
 
 		mif,ap_clk_table = <
 			/* khz */
+			2002000
+			1924000
+			1794000
+			1690000
 			1586000
 			1482000
 			1352000
@@ -992,13 +1006,13 @@
 			676000
 			546000
 			449000
-			343000
+			345000
 			>;
 
 		mif,mif_clk_table = <
 			/* khz */
 			902000
-			825000
+			836000
 			728000
 			676000
 			546000
@@ -1042,7 +1056,7 @@
 			#define DVFS_CAM_L8 610000
 			#define DVFS_CAM_L9 600000
 
-			#define DVFS_MIF_L0 1794000
+			#define DVFS_MIF_L0 1924000
 			#define DVFS_MIF_L1 1716000
 			#define DVFS_MIF_L2 1539000
 			#define DVFS_MIF_L3 1352000

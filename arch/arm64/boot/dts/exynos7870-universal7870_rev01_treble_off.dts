@@ -485,7 +485,7 @@
 			regulators {
 				buck1_reg: BUCK1 {
 					regulator-name = "BUCK1";
-					regulator-min-microvolt = <500000>;
+					regulator-min-microvolt = <400000>;
 					regulator-max-microvolt = <1300000>;
 					regulator-always-on;
 					regulator-boot-on;
@@ -496,8 +496,8 @@
 
 				buck2_reg: BUCK2 {
 					regulator-name = "BUCK2";
-					regulator-min-microvolt = <500000>;
-					regulator-max-microvolt = <1300000>;
+					regulator-min-microvolt = <100000>;
+					regulator-max-microvolt = <800000>;
 					regulator-always-on;
 					regulator-boot-on;
 					regulator-ramp-delay = <12000>;
@@ -690,7 +690,7 @@
 				ldo31_reg: LDO31 {
 					regulator-name = "vdd_ldo31";
 					regulator-min-microvolt = <1800000>;
-					regulator-max-microvolt = <3375000>;
+					regulator-max-microvolt = <2800000>;
 					regulator-boot-on;
 					regulator-always-on;
 					regulator-ramp-delay = <12000>;
@@ -699,7 +699,7 @@
 
 				ldo32_reg: LDO32 {
 					regulator-name = "tsp_dvdd";
-					regulator-min-microvolt = <3300000>;
+					regulator-min-microvolt = <1800000>;
 					regulator-max-microvolt = <3300000>;
 					regulator-always-on;
 					regulator-ramp-delay = <12000>;
@@ -725,7 +725,7 @@
 
 				ldo35_reg: LDO35 {
 					regulator-name = "VDD_CAM_SENSOR_A2P95";
-					regulator-min-microvolt = <2950000>;
+					regulator-min-microvolt = <1800000>;
 					regulator-max-microvolt = <2950000>;
 					regulator-always-on;
 					regulator-ramp-delay = <12000>;
@@ -855,7 +855,7 @@
 			fuelgauge,fuel_int = <&gpa0 3 0>;
 			fuelgauge,fuel_alert_soc = <1>;
 			fuelgauge,capacity_max = <1000>;
-			fuelgauge,capacity_max_margin = <70>;
+			fuelgauge,capacity_max_margin = <150>;
 			fuelgauge,capacity_min = <0>;
 			fuelgauge,capacity_calculation_type = <28>;
 			fuelgauge,type_str = "SDI";
@@ -874,7 +874,7 @@
 		battery,full_check_current_2nd = <3000 0 0 3000 3000 3000 3000 3000 3000 0 3000 3000 0 0 0 3000 3000 3000 3000 3000 3000 0 3000 3000 3000 3000>;
 		battery,input_current_limit_new = <1800 0 0 1500 460 900 1000 460 1000 0 820 1900 1000 0 0 400 700 1300 300 1000 1500 0 1667 1000 80 1800>;
 		battery,fast_charging_current_new = <2100 0 0 1700 460 1200 1000 460 1200 0 1000 1600 1000 0 0 400 700 1300 300 1000 1500 0 3150 1000 80 1800>;
-		battery,recharge_condition_vcell = <4250>;
+		battery,recharge_condition_vcell = <4300>;  //4250
 	};
 
 
@@ -917,11 +917,11 @@
 		compatible = "samsung,exynos7870-tmu";
 		reg = <0x0 0x10130000 0x200>;
 		interrupts = <0 435 0>;
-		max_trigger_level = <8>;
+max_trigger_level = <8>;
 		non_hw_trigger_levels = <7>;
 
 		/* Throttling Level */
-		trigger_levels_0 = <76>;
+		trigger_levels_0 = <81>;
 		trigger_levels_1 = <81>;
 		trigger_levels_2 = <86>;
 		trigger_levels_3 = <91>;
@@ -948,19 +948,24 @@
 		trigger_type_6 = <THROTTLE_ACTIVE>;
 		trigger_type_7 = <HW_TRIP>;
 
-		freq_tab_count = <5>;
+		freq_tab_count = <7>;
 
 		freq_clip_max_0 = <1586000>;
-		freq_clip_max_1 = <1248000>;
-		freq_clip_max_2 = <1248000>;
-		freq_clip_max_3 = <546000>;
-		freq_clip_max_4 = <546000>;
+		freq_clip_max_1 = <1352000>;
+		freq_clip_max_2 = <1144000>;
+		freq_clip_max_3 = <902000>;
+		freq_clip_max_4 = <757000>;
+		freq_clip_max_5 = <546000>;
+		freq_clip_max_6 = <343000>;
 
-		cooling_level_0 = <76>;
+
+		cooling_level_0 = <81>;
 		cooling_level_1 = <81>;
 		cooling_level_2 = <86>;
 		cooling_level_3 = <91>;
 		cooling_level_4 = <96>;
+		cooling_level_5 = <101>;
+		cooling_level_6 = <106>;
 	};
 
 	tmuctrl_1: tmuctrl_CPUCL1@10130000 {
@@ -971,7 +976,7 @@
 		non_hw_trigger_levels = <7>;
 
 		/* Throttling Level */
-		trigger_levels_0 = <76>;
+		trigger_levels_0 = <81>;
 		trigger_levels_1 = <81>;
 		trigger_levels_2 = <86>;
 		trigger_levels_3 = <91>;
@@ -998,19 +1003,24 @@
 		trigger_type_6 = <THROTTLE_ACTIVE>;
 		trigger_type_7 = <HW_TRIP>;
 
-		freq_tab_count = <5>;
+		freq_tab_count = <7>;
 
 		freq_clip_max_0 = <1586000>;
-		freq_clip_max_1 = <1248000>;
-		freq_clip_max_2 = <1248000>;
-		freq_clip_max_3 = <546000>;
-		freq_clip_max_4 = <546000>;
+		freq_clip_max_1 = <1352000>;
+		freq_clip_max_2 = <1144000>;
+		freq_clip_max_3 = <902000>;
+		freq_clip_max_4 = <757000>;
+		freq_clip_max_5 = <546000>;
+		freq_clip_max_6 = <343000>;
 
-		cooling_level_0 = <76>;
+
+		cooling_level_0 = <81>;
 		cooling_level_1 = <81>;
 		cooling_level_2 = <86>;
 		cooling_level_3 = <91>;
 		cooling_level_4 = <96>;
+		cooling_level_5 = <101>;
+		cooling_level_6 = <106>;
 
 		hotplug_enable = <1>;
 		hotplug_in_threshold = <91>;
@@ -1025,14 +1035,14 @@
 		non_hw_trigger_levels = <7>;
 
 		/* Throttling Level */
-		trigger_levels_0 = <76>;
-		trigger_levels_1 = <81>;
-		trigger_levels_2 = <86>;
-		trigger_levels_3 = <91>;
-		trigger_levels_4 = <96>;
-		trigger_levels_5 = <101>;
-		trigger_levels_6 = <111>;
-		trigger_levels_7 = <115>;
+		trigger_levels_0 = <96>;
+		trigger_levels_1 = <96>;
+		trigger_levels_2 = <96>;
+		trigger_levels_3 = <101>;
+		trigger_levels_4 = <106>;
+		trigger_levels_5 = <111>;
+		trigger_levels_6 = <115>;
+		trigger_levels_7 = <120>;
 
 		trigger_enable_0 = <ENABLE>;
 		trigger_enable_1 = <ENABLE>;
@@ -1057,24 +1067,23 @@
 		freq_clip_max_0 = <1246000>;
 		freq_clip_max_1 = <1146000>;
 		freq_clip_max_2 = <1001000>;
-		freq_clip_max_3 = <728000>;
-		freq_clip_max_4 = <343000>;
+		freq_clip_max_3 = <845000>;
+		freq_clip_max_4 = <676000>;
 		freq_clip_max_5 = <343000>;
-
-		cooling_level_0 = <76>;
-		cooling_level_1 = <81>;
-		cooling_level_2 = <86>;
-		cooling_level_3 = <91>;
-		cooling_level_4 = <96>;
-		cooling_level_5 = <101>;
+		cooling_level_0 = <96>;
+		cooling_level_1 = <96>;
+		cooling_level_2 = <101>;
+		cooling_level_3 = <106>;
+		cooling_level_4 = <111>;
+		cooling_level_5 = <120>;
 
 		/* gpu cooling related table */
 		gpu_idx_num = <6>;
 		/* flags, driver_data(index), frequency */
-		gpu_cooling_table = < 0 0 1001000
-				      0 1 845000
-				      0 2 728000
-				      0 3 545000
+		gpu_cooling_table = < 0 0 1246000
+				      0 1 1146000
+				      0 2 1001000
+				      0 3 676000
 				      0 4 343000
 				      0 5 TABLE_END>;
 	};
@@ -1087,6 +1096,9 @@
 
 		mif,ap_clk_table = <
 			/* khz */
+			1924000
+			1794000
+			1690000
 			1586000
 			1482000
 			1352000
@@ -1105,7 +1117,7 @@
 		mif,mif_clk_table = <
 			/* khz */
 			902000
-			825000
+			836000
 			728000
 			676000
 			546000
@@ -1154,88 +1166,88 @@
 				default_i2c = <0>;
 
 				front_preview_int = <0>;
-				front_preview_cam = <DVFS_CAM_L1>;
-				front_preview_mif = <DVFS_MIF_L3>;
+				front_preview_cam = <DVFS_CAM_L0>;
+				front_preview_mif = <DVFS_MIF_L0>;
 				front_preview_i2c = <0>;
 
 				front_capture_int = <0>;
-				front_capture_cam = <DVFS_CAM_L1>;
+				front_capture_cam = <DVFS_CAM_L0>;
 				front_capture_mif = <DVFS_MIF_L0>;
 				front_capture_i2c = <0>;
 
 				front_video_int = <0>;
-				front_video_cam = <DVFS_CAM_L1>;
-				front_video_mif = <DVFS_MIF_L3>;
+				front_video_cam = <DVFS_CAM_L0>;
+				front_video_mif = <DVFS_MIF_L0>;
 				front_video_i2c = <0>;
 
 				front_video_whd_int = <0>;
-				front_video_whd_cam = <DVFS_CAM_L1>;
-				front_video_whd_mif = <DVFS_MIF_L3>;
+				front_video_whd_cam = <DVFS_CAM_L0>;
+				front_video_whd_mif = <DVFS_MIF_L0>;
 				front_video_whd_i2c = <0>;
 
 				front_video_capture_int = <0>;
-				front_video_capture_cam = <DVFS_CAM_L1>;
+				front_video_capture_cam = <DVFS_CAM_L0>;
 				front_video_capture_mif = <DVFS_MIF_L0>;
 				front_video_capture_i2c = <0>;
 
 				front_video_whd_capture_int = <0>;
-				front_video_whd_capture_cam = <DVFS_CAM_L1>;
+				front_video_whd_capture_cam = <DVFS_CAM_L0>;
 				front_video_whd_capture_mif = <DVFS_MIF_L0>;
 				front_video_whd_capture_i2c = <0>;
 
 				front_vt1_int = <0>;
-				front_vt1_cam = <DVFS_CAM_L1>;
-				front_vt1_mif = <DVFS_MIF_L3>;
+				front_vt1_cam = <DVFS_CAM_L0>;
+				front_vt1_mif = <DVFS_MIF_L0>;
 				front_vt1_i2c = <0>;
 
 				front_vt2_int = <0>;
-				front_vt2_cam = <DVFS_CAM_L1>;
-				front_vt2_mif = <DVFS_MIF_L3>;
+				front_vt2_cam = <DVFS_CAM_L0>;
+				front_vt2_mif = <DVFS_MIF_L0>;
 				front_vt2_i2c = <0>;
 
 				front_companion_preview_int = <0>;
-				front_companion_preview_cam = <DVFS_CAM_L1>;
-				front_companion_preview_mif = <DVFS_MIF_L3>;
+				front_companion_preview_cam = <DVFS_CAM_L0>;
+				front_companion_preview_mif = <DVFS_MIF_L0>;
 				front_companion_preview_i2c = <0>;
 
 				front_companion_capture_int = <0>;
-				front_companion_capture_cam = <DVFS_CAM_L1>;
+				front_companion_capture_cam = <DVFS_CAM_L0>;
 				front_companion_capture_mif = <DVFS_MIF_L0>;
 				front_companion_capture_i2c = <0>;
 
 				front_companion_video_int = <0>;
-				front_companion_video_cam = <DVFS_CAM_L1>;
-				front_companion_video_mif = <DVFS_MIF_L3>;
+				front_companion_video_cam = <DVFS_CAM_L0>;
+				front_companion_video_mif = <DVFS_MIF_L0>;
 				front_companion_video_i2c = <0>;
 
 				front_companion_video_whd_int = <0>;
-				front_companion_video_whd_cam = <DVFS_CAM_L1>;
-				front_companion_video_whd_mif = <DVFS_MIF_L3>;
+				front_companion_video_whd_cam = <DVFS_CAM_L0>;
+				front_companion_video_whd_mif = <DVFS_MIF_L0>;
 				front_companion_video_whd_i2c = <0>;
 
 				front_companion_video_capture_int = <0>;
-				front_companion_video_capture_cam = <DVFS_CAM_L1>;
+				front_companion_video_capture_cam = <DVFS_CAM_L0>;
 				front_companion_video_capture_mif = <DVFS_MIF_L0>;
 				front_companion_video_capture_i2c = <0>;
 
 				front_companion_video_whd_capture_int = <0>;
-				front_companion_video_whd_capture_cam = <DVFS_CAM_L1>;
+				front_companion_video_whd_capture_cam = <DVFS_CAM_L0>;
 				front_companion_video_whd_capture_mif = <DVFS_MIF_L0>;
 				front_companion_video_whd_capture_i2c = <0>;
 
 				rear_preview_fhd_int = <0>;
 				rear_preview_fhd_cam = <DVFS_CAM_L0>;
-				rear_preview_fhd_mif = <DVFS_MIF_L2>;
+				rear_preview_fhd_mif = <DVFS_MIF_L0>;
 				rear_preview_fhd_i2c = <0>;
 
 				rear_preview_whd_int = <0>;
 				rear_preview_whd_cam = <DVFS_CAM_L0>;
-				rear_preview_whd_mif = <DVFS_MIF_L2>;
+				rear_preview_whd_mif = <DVFS_MIF_L0>;
 				rear_preview_whd_i2c = <0>;
 
 				rear_preview_uhd_int = <0>;
 				rear_preview_uhd_cam = <DVFS_CAM_L0>;
-				rear_preview_uhd_mif = <DVFS_MIF_L2>;
+				rear_preview_uhd_mif = <DVFS_MIF_L0>;
 				rear_preview_uhd_i2c = <0>;
 
 				rear_capture_int = <0>;
@@ -1245,17 +1257,17 @@
 
 				rear_video_fhd_int = <0>;
 				rear_video_fhd_cam = <DVFS_CAM_L0>;
-				rear_video_fhd_mif = <DVFS_MIF_L2>;
+				rear_video_fhd_mif = <DVFS_MIF_L0>;
 				rear_video_fhd_i2c = <0>;
 
 				rear_video_whd_int = <0>;
 				rear_video_whd_cam = <DVFS_CAM_L0>;
-				rear_video_whd_mif = <DVFS_MIF_L2>;
+				rear_video_whd_mif = <DVFS_MIF_L0>;
 				rear_video_whd_i2c = <0>;
 
 				rear_video_uhd_int = <0>;
 				rear_video_uhd_cam = <DVFS_CAM_L0>;
-				rear_video_uhd_mif = <DVFS_MIF_L2>;
+				rear_video_uhd_mif = <DVFS_MIF_L0>;
 				rear_video_uhd_i2c = <0>;
 
 				rear_video_fhd_capture_int = <0>;
@@ -1294,18 +1306,18 @@
 				dual_video_capture_i2c = <0>;
 
 				preview_high_speed_fps_int = <0>;
-				preview_high_speed_fps_cam = <DVFS_CAM_L2>;
-				preview_high_speed_fps_mif = <DVFS_MIF_L2>;
+				preview_high_speed_fps_cam = <DVFS_CAM_L0>;
+				preview_high_speed_fps_mif = <DVFS_MIF_L0>;
 				preview_high_speed_fps_i2c = <0>;
 
 				video_high_speed_60fps_int = <0>;
-				video_high_speed_60fps_cam = <DVFS_CAM_L1>;
-				video_high_speed_60fps_mif = <DVFS_MIF_L2>;
+				video_high_speed_60fps_cam = <DVFS_CAM_L0>;
+				video_high_speed_60fps_mif = <DVFS_MIF_L0>;
 				video_high_speed_60fps_i2c = <0>;
 
 				video_high_speed_120fps_int = <0>;
-				video_high_speed_120fps_cam = <DVFS_CAM_L1>;
-				video_high_speed_120fps_mif = <DVFS_MIF_L2>;
+				video_high_speed_120fps_cam = <DVFS_CAM_L0>;
+				video_high_speed_120fps_mif = <DVFS_MIF_L0>;
 				video_high_speed_120fps_i2c = <0>;
 
 				video_high_speed_240fps_int = <0>;
@@ -1328,23 +1340,23 @@
 				default_i2c = <0>;
 
 				front_preview_int = <0>;
-				front_preview_cam = <DVFS_CAM_L1>;
-				front_preview_mif = <DVFS_MIF_L3>;
+				front_preview_cam = <DVFS_CAM_L0>;
+				front_preview_mif = <DVFS_MIF_L0>;
 				front_preview_i2c = <0>;
 
 				front_capture_int = <0>;
-				front_capture_cam = <DVFS_CAM_L1>;
+				front_capture_cam = <DVFS_CAM_L0>;
 				front_capture_mif = <DVFS_MIF_L0>;
 				front_capture_i2c = <0>;
 
 				front_video_int = <0>;
-				front_video_cam = <DVFS_CAM_L1>;
-				front_video_mif = <DVFS_MIF_L3>;
+				front_video_cam = <DVFS_CAM_L0>;
+				front_video_mif = <DVFS_MIF_L0>;
 				front_video_i2c = <0>;
 
 				front_video_whd_int = <0>;
-				front_video_whd_cam = <DVFS_CAM_L1>;
-				front_video_whd_mif = <DVFS_MIF_L3>;
+				front_video_whd_cam = <DVFS_CAM_L0>;
+				front_video_whd_mif = <DVFS_MIF_L0>;
 				front_video_whd_i2c = <0>;
 
 				front_video_capture_int = <0>;
@@ -1630,3 +1642,4 @@
 		status = "okay";
 	};
 };
+

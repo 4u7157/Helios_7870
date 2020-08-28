@@ -446,7 +446,9 @@ int gpu_notifier_init(struct kbase_device *kbdev)
 
 	platform->voltage_margin = 0;
 #ifdef CONFIG_EXYNOS_THERMAL
+#ifdef CONFIG_GPU_THERMAL
 	exynos_gpu_add_notifier(&gpu_tmu_nb);
+#endif
 #endif /* CONFIG_EXYNOS_THERMAL */
 
 #ifdef CONFIG_MALI_RT_PM

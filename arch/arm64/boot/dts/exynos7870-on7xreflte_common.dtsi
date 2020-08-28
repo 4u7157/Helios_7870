@@ -1382,7 +1382,6 @@ firmware {
 			reg = <0x10>;
 			id = <1>; /* matching sensor id */
 			setfile = "setB"; /*EVT 01*/
-			use_initial_ae;	/* for initial AE */
 		};
 	};
 

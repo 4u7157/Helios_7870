@@ -185,7 +185,7 @@
 						36521	32432>;
 
 			battery,FG_Accumulative_rate_evt2 =<0xC6 0x07>;
-			battery,data_ver = <0x02>;
+
 	};
 
 	battery {
